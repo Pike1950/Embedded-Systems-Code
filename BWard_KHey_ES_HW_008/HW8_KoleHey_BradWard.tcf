@@ -1,0 +1,28 @@
+utils.loadPlatform("ti.platforms.dsk6713");
+
+/* The following DSP/BIOS Features are enabled.  */
+bios.enableRtdx(prog);
+bios.enableTskManager(prog);
+
+bios.GBL.BOARDNAME = "c6713";
+bios.PRD.create("PRD0");
+bios.PRD.instance("PRD0").order = 2;
+bios.PRD.instance("PRD0").period = 1000;
+bios.PRD.instance("PRD0").fxn = prog.extern("getSwitches");
+bios.SWI.create("SWI_ping");
+bios.SWI.instance("SWI_ping").order = 1;
+bios.SWI.create("SWI_pong");
+bios.SWI.instance("SWI_pong").order = 2;
+bios.SWI.create("SWI_pang");
+bios.SWI.instance("SWI_pang").order = 3;
+bios.SWI.instance("SWI_ping").fxn = prog.extern("SWI_ping_ftn");
+bios.SWI.instance("SWI_ping").priority = 2;
+bios.SWI.instance("SWI_pong").fxn = prog.extern("SWI_pong_ftn");
+bios.SWI.instance("SWI_pong").priority = 2;
+bios.SWI.instance("SWI_pang").fxn = prog.extern("SWI_pang_ftn");
+bios.SWI.instance("SWI_pang").priority = 2;
+bios.HWI.instance("HWI_INT8").fxn = prog.extern("c_int8");
+bios.HWI.instance("HWI_INT8").useDispatcher = 1;
+// !GRAPHICAL_CONFIG_TOOL_SCRIPT_INSERT_POINT!
+
+prog.gen();

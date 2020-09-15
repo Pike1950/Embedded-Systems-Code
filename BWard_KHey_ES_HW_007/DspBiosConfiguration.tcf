@@ -1,0 +1,32 @@
+utils.loadPlatform("ti.platforms.dsk6713");
+
+/* The following DSP/BIOS Features are enabled.  */
+bios.enableRtdx(prog);
+bios.enableTskManager(prog);
+
+bios.GBL.BOARDNAME = "c6713";
+bios.SEM.create("SEM0");
+bios.TSK.create("TSK0");
+bios.TSK.instance("TSK0").order = 1;
+bios.TSK.create("TSK1");
+bios.TSK.instance("TSK1").order = 2;
+bios.TSK.instance("TSK0").fxn = prog.extern("TSK0_ftn");
+bios.TSK.instance("TSK1").fxn = prog.extern("TSK1_ftn");
+bios.SWI.create("SWI0");
+bios.SWI.instance("SWI0").order = 1;
+bios.SWI.instance("SWI0").fxn = prog.extern("SWI0_ftn");
+bios.SWI.instance("PRD_swi").order = 1;
+bios.SWI.instance("KNL_swi").order = 2;
+bios.SWI.instance("SWI0").destroy();
+bios.TSK.instance("TSK_idle").order = 1;
+bios.TSK.instance("TSK0").order = 2;
+bios.TSK.instance("TSK1").order = 3;
+bios.SEM.instance("SEM0").count = 1;
+bios.TSK.create("TSK2");
+bios.TSK.instance("TSK2").order = 4;
+bios.TSK.instance("TSK2").fxn = prog.extern("TSK_ftn");
+bios.TSK.instance("TSK2").fxn = prog.extern("TSK2_ftn");
+bios.SEM.instance("SEM0").count = 0;
+// !GRAPHICAL_CONFIG_TOOL_SCRIPT_INSERT_POINT!
+
+prog.gen();

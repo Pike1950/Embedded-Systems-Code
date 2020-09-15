@@ -1,0 +1,148 @@
+******************************************************************************
+               TMS320C6x Linker PC v7.4.24                     
+******************************************************************************
+>> Linked Fri Sep 06 10:44:21 2019
+
+OUTPUT FILE NAME:   <BWard_ES_HW1.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000d60
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  IRAM                  00000000   00030000  00000ec0  0002f140  RWIX
+  L2RAM                 00030000   00010000  00000000  00010000  RWIX
+  EMIFCE0               80000000   10000000  00000000  10000000  RWIX
+  EMIFCE1               90000000   10000000  00000000  10000000  RWIX
+  EMIFCE2               a0000000   10000000  00000000  10000000  RWIX
+  EMIFCE3               b0000000   10000000  00000000  10000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.bss       0    00000000    00000000     UNINITIALIZED
+
+.data      0    00000000    00000000     UNINITIALIZED
+
+.pinit     0    00000000    00000000     UNINITIALIZED
+
+.stack     0    00000000    00000800     UNINITIALIZED
+                  00000000    00000008     rts6700.lib : boot.obj (.stack)
+                  00000008    000007f8     --HOLE--
+
+.text      0    00000800    00000680     
+                  00000800    00000240     rts6700.lib : memcpy62.obj (.text:_memcpy)
+                  00000a40    00000100                 : autoinit.obj (.text:__auto_init)
+                  00000b40    000000e0                 : exit.obj (.text:_exit)
+                  00000c20    000000c0                 : cpy_tbl.obj (.text:_copy_in)
+                  00000ce0    00000080                 : cpp_init.obj (.text:___TI_cpp_init)
+                  00000d60    00000080                 : boot.obj (.text:_c_int00)
+                  00000de0    00000040                 : args_main.obj (.text:__args_main)
+                  00000e20    00000040     main.obj (.text)
+                  00000e60    00000020     rts6700.lib : exit.obj (.text:_abort)
+
+.cinit     0    00000e80    00000034     
+                  00000e80    0000002c     rts6700.lib : exit.obj (.cinit)
+                  00000eac    00000004     --HOLE-- [fill = 0]
+                  00000eb0    00000004     (.pad.cinit) [fill = 0]
+
+.far       0    00000eb4    0000000c     UNINITIALIZED
+                  00000eb4    0000000c     rts6700.lib : exit.obj (.far)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000000   $bss
+00000000   .bss
+00000000   .data
+00000800   .text
+00000e60   C$$EXIT
+00000800   __STACK_END
+00000800   __STACK_SIZE
+00000001   __TI_args_main
+00000ce0   ___TI_cpp_init
+00000ebc   ___TI_enable_exit_profile_output
+ffffffff   ___TI_pprof_out_hndl
+ffffffff   ___TI_prof_data_size
+ffffffff   ___TI_prof_data_start
+ffffffff   ___binit__
+00000000   ___bss__
+ffffffff   ___c_args__
+00000e80   ___cinit__
+00000000   ___data__
+00000000   ___edata__
+00000000   ___end__
+00000e80   ___etext__
+ffffffff   ___pinit__
+00000800   ___text__
+00000de0   __args_main
+00000a40   __auto_init
+00000eb4   __cleanup_ptr
+00000eb8   __dtors_ptr
+00000000   __stack
+00000e60   _abort
+00000d60   _c_int00
+00000c20   _copy_in
+00000b40   _exit
+00000e20   _main
+00000800   _memcpy
+ffffffff   binit
+00000e80   cinit
+00000000   edata
+00000000   end
+00000e80   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   $bss
+00000000   .bss
+00000000   .data
+00000000   ___bss__
+00000000   ___data__
+00000000   ___edata__
+00000000   ___end__
+00000000   __stack
+00000000   edata
+00000000   end
+00000001   __TI_args_main
+00000800   .text
+00000800   __STACK_END
+00000800   __STACK_SIZE
+00000800   ___text__
+00000800   _memcpy
+00000a40   __auto_init
+00000b40   _exit
+00000c20   _copy_in
+00000ce0   ___TI_cpp_init
+00000d60   _c_int00
+00000de0   __args_main
+00000e20   _main
+00000e60   C$$EXIT
+00000e60   _abort
+00000e80   ___cinit__
+00000e80   ___etext__
+00000e80   cinit
+00000e80   etext
+00000eb4   __cleanup_ptr
+00000eb8   __dtors_ptr
+00000ebc   ___TI_enable_exit_profile_output
+ffffffff   ___TI_pprof_out_hndl
+ffffffff   ___TI_prof_data_size
+ffffffff   ___TI_prof_data_start
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[40 symbols]
